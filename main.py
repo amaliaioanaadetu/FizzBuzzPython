@@ -32,6 +32,14 @@ def fizzbuzz():
             else:
                 placeHolder += "Fezz"
 
+        if i % 17 == 0:
+            reversedPlaceHolder = ""
+            for i in range(0, len(placeHolder)):
+                if placeHolder[i].isupper():
+                    word = placeHolder[i: i + 4]
+                    reversedPlaceHolder = word + reversedPlaceHolder
+            placeHolder = reversedPlaceHolder
+
         if placeHolder:
             print(placeHolder)
         else:
