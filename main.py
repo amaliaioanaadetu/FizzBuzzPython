@@ -25,6 +25,13 @@ def fizzbuzz():
         if i % 7 == 0 and (i % 3 == 0 or i % 5 == 0):
             placeHolder += "Bang"
 
+        if i % 13 == 0:
+            positionFirstB = placeHolder.find("B")
+            if positionFirstB != -1:
+                placeHolder = placeHolder[:positionFirstB] + "Fezz" + placeHolder[positionFirstB:]
+            else:
+                placeHolder += "Fezz"
+
         if placeHolder:
             print(placeHolder)
         else:
