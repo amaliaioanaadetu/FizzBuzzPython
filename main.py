@@ -12,34 +12,29 @@ def fizzbuzz(upperLimit):
             print("Bong")
             continue
 
-        placeHolder = ""
+        parts = []
 
         if i % 3 == 0:
-            placeHolder += "Fizz"
+            parts.append("Fizz")
         if i % 5 == 0:
-            placeHolder += "Buzz"
+            parts.append("Buzz")
         if i % 7 == 0:
-            placeHolder += "Bang"
+            parts.append("Bang")
 
         if i % 13 == 0:
-            positionFirstB = placeHolder.find("B")
-            if positionFirstB != -1:
-                placeHolder = placeHolder[:positionFirstB] + "Fezz" + placeHolder[positionFirstB:]
-            else:
-                placeHolder += "Fezz"
+            inserted = False
+            for idx, part in enumerate(parts):
+                if part.startswith("B"):
+                    parts.insert(idx, "Fezz")
+                    inserted = True
+                    break
+            if not inserted:
+                parts.append("Fezz")
 
         if i % 17 == 0:
-            reversedPlaceHolder = ""
-            for i in range(0, len(placeHolder)):
-                if placeHolder[i].isupper():
-                    word = placeHolder[i: i + 4]
-                    reversedPlaceHolder = word + reversedPlaceHolder
-            placeHolder = reversedPlaceHolder
+            parts.reverse()
 
-        if placeHolder:
-            print(placeHolder)
-        else:
-            print(i)
+        print("".join(parts) if parts else i)
 
 
 def fizzbuzzSimple(upperLimit):
@@ -49,5 +44,5 @@ def fizzbuzzSimple(upperLimit):
 
 if __name__ == '__main__':
     upperLimit = int(input("Select the maximum number: "))
-    fizzbuzzSimple(upperLimit)
+    fizzbuzz(upperLimit)
 
