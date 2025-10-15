@@ -4,8 +4,8 @@
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
 
-def fizzbuzz():
-    for i in range(1,500):
+def fizzbuzz(upperLimit):
+    for i in range(1,upperLimit + 1):
         if i % 11 == 0:
             print("Bong")
             continue
@@ -48,5 +48,6 @@ def fizzbuzz():
 
 
 if __name__ == '__main__':
-    fizzbuzz()
+    upperLimit = int(input("Select the maximum number:"))
+    fizzbuzz(upperLimit)
 
